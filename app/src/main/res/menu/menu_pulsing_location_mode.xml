@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_map_style_change"
+        android:title="custommapstyle"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_component_disable"
+        android:title="locationdisable"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_component_enabled"
+        android:title="locationenable"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_stop_pulsing"
+        android:title="locationstoppulsing"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_start_pulsing"
+        android:title="locationstartpulsing"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_pulsing_follow_accuracy_radius"
+        android:title="locationaccurasyradius"
+        app:showAsAction="never" />
+
+</menu>

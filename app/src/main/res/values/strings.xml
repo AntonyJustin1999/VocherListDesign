@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Android Task</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="ApiKey">AIzaSyDqA2ZppI-OVM5EwOqCXX4uSDv49r1ZebQ</string>
+
+</resources>
