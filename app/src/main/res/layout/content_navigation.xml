@@ -8,61 +8,9 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_navigation">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <FrameLayout
+        android:id="@+id/layout_home_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:fillViewport="true">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tablay_titles"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                app:tabIndicator="@drawable/tab_indicator"
-                app:tabIndicatorColor="@color/color_primary"
-                app:tabIndicatorHeight="@dimen/_3sdp"
-                app:tabMaxWidth="0dp"
-                app:tabMode="fixed"
-                app:tabSelectedTextColor="@color/color_primary"
-                app:tabTextAppearance="@style/customfontstyle"
-                app:tabTextColor="@color/black"
-                app:tabIndicatorFullWidth="false">
-            </com.google.android.material.tabs.TabLayout>
-
-            <View
-                android:id="@+id/view_search_menu_title_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="0.85dp"
-                android:background="@color/grey_300"
-                />
-
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
-
-        </LinearLayout>
-
-    </ScrollView>
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/progress_bar"
-        android:layout_width="@dimen/_70sdp"
-        android:layout_height="@dimen/_70sdp"
-        app:lottie_rawRes="@raw/loader"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        android:background="@drawable/bg_white_roundt"
-        android:layout_centerInParent="true"
-        android:visibility="gone"
-        />
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

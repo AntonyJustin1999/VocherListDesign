@@ -39,9 +39,9 @@ android {
 //            exclude group: "com.mapbox.mapboxsdk", module: "mapbox-android-core:0.2.1"
 //        }
 //    }
-//    realm {
-//        syncEnabled = true
-//    }
+    realm {
+        syncEnabled = true
+    }
 }
 
 dependencies {
@@ -57,14 +57,22 @@ dependencies {
     // Lottie dependency
     implementation 'com.airbnb.android:lottie:3.4.0'
 
-    implementation 'com.google.android.gms:play-services-maps:18.0.0'
-    implementation 'com.google.android.gms:play-services-location:18.0.0'
-
-    implementation 'com.google.maps.android:android-maps-utils:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     implementation 'com.squareup.retrofit2:retrofit:2.0.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.0.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+
+    //Architechture Componenets
+    //def lifecycle_version = "2.1.0"
+//    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+//    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+//    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    //implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
 
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.+'
