@@ -16,6 +16,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.test.app.R
 import com.test.app.databinding.FragmentCountryListBinding
 import com.test.app.loadmaps.view.adapter.CountriesListAdapter
+import com.test.app.loadmaps.viewmodel.CountryDetailsViewModelFactory
+import com.test.app.loadmaps.viewmodel.CountryListViewModelFactory
 import com.test.app.loadmaps.viewmodel.CountryListViewModelImpl
 
 class CountryListFragment : Fragment {
@@ -41,58 +43,43 @@ class CountryListFragment : Fragment {
         val bundle = arguments
         val message = bundle?.getString("mText")
 
-        databinding = DataBindingUtil.inflate(inflater, R.layout.fragment_country_list, container, false)
+        databinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_country_list, container, false)
         mCountryListView = databinding.getRoot()
-        viewModel = ViewModelProvider(this).get(CountryListViewModelImpl::class.java)
+        val factory = CountryListViewModelFactory(mContext!!)
+        viewModel = ViewModelProvider(this, factory).get(CountryListViewModelImpl::class.java)
         databinding.countrylistViewModel = viewModel
         databinding.lifecycleOwner = viewLifecycleOwner
         lifecycle.addObserver(viewModel)
 
         //rv_country_list = mCountryListView?.findViewById<RecyclerView>(R.id.rv_restaurant_list)
 
-        viewModel?.errorMessage?.observe(viewLifecycleOwner) {
-                errMsg -> showAlertDialogBox("", errMsg)
-        }
+//        viewModel?.errorMessage?.observe(viewLifecycleOwner) {
+//                errMsg -> showAlertDialogBox("", errMsg)
+//        }
         viewModel?.mutableCountryList?.observe(viewLifecycleOwner) { countrylist ->
-            //onSuccessCountrylistLoaded(countrylist)
             val countryListRecyclerViewAdapter = CountriesListAdapter(countrylist, context)
             databinding.setMyAdapter(countryListRecyclerViewAdapter)
         }
-        viewModel?.countryListErrorMessage?.observe(viewLifecycleOwner) { msg ->
-            onFailureCountryList(msg) }
-        viewModel?.isProgressShow?.observe(viewLifecycleOwner) { isShow ->
-            if (isShow!!) {
-                databinding.progressShow = true
-            } else {
-                databinding.progressShow = false
-            }
-        }
-        viewModel?.onNetwork?.observe(viewLifecycleOwner) { isNetwork ->
-            if (isNetwork!!) {
-                showError("NetworkNotAvailable")
-                onFailureCountryList("Network Not Available")
-            }
-        }
-        if (isNetworkAvailable()) {
-            viewModel?.loadCountryList()
-        } else {
-            showError("NetworkNotAvailable")
-            onFailureCountryList("Network Not Available")
-        }
+//        viewModel?.countryListErrorMessage?.observe(viewLifecycleOwner) { msg ->
+//            onFailureCountryList(msg) }
+//        viewModel?.isProgressShow?.observe(viewLifecycleOwner) { isShow ->
+//            if (isShow!!) {
+//                databinding.progressShow = true
+//            } else {
+//                databinding.progressShow = false
+//            }
+//        }
+//        viewModel?.onNetwork?.observe(viewLifecycleOwner) { isNetwork ->
+//            if (isNetwork!!) {
+//                showError("NetworkNotAvailable")
+//                onFailureCountryList("Network Not Available")
+//            }
+//        }
+
+        viewModel?.loadCountryList()
+
         return mCountryListView
-    }
-    fun onFailureCountryList(message: String?) {
-        showError(message)
-    }
-
-    fun showError(ErrorMsg: String?) {
-        showAlertDialogBox("", ErrorMsg)
-    }
-
-    fun showCountryDetailsPage(commonName: String?) {
-//        val intent = Intent(context, CountryDetailsActivity::class.java)
-//        intent.putExtra("CountryName", commonName)
-//        context?.startActivity(intent)
     }
 
     private fun showAlertDialogBox(title: String, msg: String?) {
@@ -105,20 +92,4 @@ class CountryListFragment : Fragment {
         builder.show()
     }
 
-    private fun isNetworkAvailable(): Boolean{
-        try{
-            if (context != null) {
-                val connectivity = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-                if (connectivity != null) {
-                    val info = connectivity.activeNetworkInfo
-                    if (info != null && info.isConnected) {
-                        return true
-                    }
-                }
-            }
-            return false
-        } catch (e: IllegalArgumentException) {
-            return false
-        }
-    }
 }

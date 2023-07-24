@@ -10,7 +10,7 @@ import android.util.Log
 class ConnectionReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
 
-        Log.e("Test","BroadCastReceiver - onReceive Called()")
+        //Log.e("Test","BroadCastReceiver - onReceive Called()")
         // initialize connectivity manager
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         // Initialize network info

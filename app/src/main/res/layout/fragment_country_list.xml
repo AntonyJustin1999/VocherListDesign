@@ -10,14 +10,11 @@
             name="countrylistViewModel"
             type="com.test.app.loadmaps.viewmodel.CountryListViewModelImpl" />
         <variable
-            name="progressShow"
-            type="java.lang.Boolean"/>
-        <variable
             name="myAdapter"
             type="com.test.app.loadmaps.view.adapter.CountriesListAdapter" />
     </data>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -29,38 +26,99 @@
             android:scrollbars="vertical"
             android:fillViewport="true">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_restaurant_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adapter="@{myAdapter}"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_10sdp" />
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:visibility="gone">-->
+<!--                </LinearLayout>-->
 
-            </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_restaurant_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adapter="@{myAdapter}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:visibility="@{countrylistViewModel.isCountryListsShow ? View.VISIBLE : View.GONE }"
+                        />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_400sdp"
+                    app:lottie_rawRes="@raw/no_network"
+                    android:layout_centerInParent="true"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    android:visibility="@{countrylistViewModel.isNetwork ? View.VISIBLE : View.GONE }"
+                    />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/iv_on_error"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_400sdp"
+                    app:lottie_rawRes="@raw/on_error"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    android:background="@drawable/bg_white_roundt"
+                    android:layout_centerInParent="true"
+                    android:visibility="@{countrylistViewModel.isErrorExist ? View.VISIBLE : View.GONE }"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="@={countrylistViewModel.errorMessage}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/iv_on_error"
+                    />
+
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_400sdp"
+                    app:lottie_rawRes="@raw/no_data"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    android:background="@drawable/bg_white_roundt"
+                    android:layout_centerInParent="true"
+                    android:visibility="@{countrylistViewModel.isDataEmpty ? View.VISIBLE : View.GONE }"
+                    />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/progress_bar"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    app:lottie_rawRes="@raw/loader"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    android:background="@drawable/bg_white_roundt"
+                    android:layout_centerInParent="true"
+                    android:visibility="@{countrylistViewModel.isProgressShow ? View.VISIBLE : View.GONE }"
+                    />
+
+            </RelativeLayout>
 
         </ScrollView>
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/progress_bar"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_70sdp"
-            app:lottie_rawRes="@raw/loader"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            android:background="@drawable/bg_white_roundt"
-            android:layout_centerInParent="true"
-            android:visibility="@{progressShow ? View.VISIBLE : View.GONE }"
-            />
-
-    </RelativeLayout>
+    </LinearLayout>
 </layout>
 

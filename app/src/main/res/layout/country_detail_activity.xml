@@ -9,15 +9,6 @@
         <variable
             name="countryDetailsViewModel"
             type="com.test.app.loadmaps.viewmodel.CountryDetailsViewModelImpl" />
-        <variable
-            name="contentShow"
-            type="java.lang.Boolean"/>
-<!--        <variable-->
-<!--            name="noNetworkShow"-->
-<!--            type="java.lang.Boolean"/>-->
-        <variable
-            name="errorShow"
-            type="java.lang.Boolean"/>
     </data>
 
     <LinearLayout
