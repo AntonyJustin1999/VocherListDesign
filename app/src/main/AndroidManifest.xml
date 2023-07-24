@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".LoadMaps.MyApplication"
+        android:name=".loadmaps.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,23 +14,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoadMaps.view.AccountActivity"
+            android:name=".loadmaps.view.AccountActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".LoadMaps.view.HomeActivity"
+            android:name=".loadmaps.view.HomeActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoBar"
+            />
         <activity
-            android:name=".LoadMaps.view.SplashScreen"
+            android:name=".loadmaps.view.SplashScreen"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+<!--            android:theme="@style/SplashTheme"-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".loadmaps.view.CountryDetailsActivity" android:exported="true"></activity>
     </application>
 
 </manifest>

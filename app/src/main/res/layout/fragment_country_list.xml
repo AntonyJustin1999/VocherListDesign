@@ -1,46 +1,66 @@
-<RelativeLayout class="androidx.appcompat.app.AlertController$RecycleListView" xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="countrylistViewModel"
+            type="com.test.app.loadmaps.viewmodel.CountryListViewModelImpl" />
+        <variable
+            name="progressShow"
+            type="java.lang.Boolean"/>
+        <variable
+            name="myAdapter"
+            type="com.test.app.loadmaps.view.adapter.CountriesListAdapter" />
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:fillViewport="true">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:scrollbars="vertical"
+            android:fillViewport="true">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_restaurant_list"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp" />
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_restaurant_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adapter="@{myAdapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp" />
 
-    </ScrollView>
+            </LinearLayout>
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/progress_bar"
-        android:layout_width="@dimen/_70sdp"
-        android:layout_height="@dimen/_70sdp"
-        app:lottie_rawRes="@raw/loader"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        android:background="@drawable/bg_white_roundt"
-        android:layout_centerInParent="true"
-        android:visibility="gone"
-        />
+        </ScrollView>
 
-</RelativeLayout>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/progress_bar"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            app:lottie_rawRes="@raw/loader"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:background="@drawable/bg_white_roundt"
+            android:layout_centerInParent="true"
+            android:visibility="@{progressShow ? View.VISIBLE : View.GONE }"
+            />
+
+    </RelativeLayout>
+</layout>
 
