@@ -7,7 +7,7 @@
     <data>
         <variable
             name="splashViewModel"
-            type="com.test.app.loadmaps.viewmodel.SplashViewModelImpl" />
+            type="com.test.app.task.viewmodel.SplashViewModelImpl" />
     </data>
 
     <RelativeLayout

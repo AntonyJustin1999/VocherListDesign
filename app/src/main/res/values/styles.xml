@@ -10,9 +10,20 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/color_primary</item>
-        <item name="colorPrimaryDark">@color/color_primary_dark</item>
-        <item name="colorAccent">@color/color_primary</item>
+        <item name="colorPrimary">@color/red_color</item>
+        <item name="colorPrimaryDark">@color/red_color</item>
+        <item name="colorAccent">@color/red_light_color</item>
+<!--        <item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>-->
+<!--        <item name="android:background">@color/red_light_color</item>-->
+    </style>
+
+    <style name="MyTheme.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
+        <item name="android:actionBarStyle">@style/MyTheme.ActionBarStyle</item>
+    </style>
+
+    <style name="MyTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="AppThemeNoBar" parent="Theme.AppCompat.Light.NoActionBar">
@@ -20,29 +31,6 @@
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
         <item name="colorAccent">@color/color_primary</item>
-    </style>
-
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <style name="CustomAppTheme" parent="Theme.AppCompat">
-        <item name="android:textColorPrimaryDisableOnly">#00838f</item>
-        <item name="colorAccent">#e91e63</item>
-    </style>
-
-    <style name="CustomAppTheme1" parent="Theme.AppCompat.Light">
-        <item name="colorPrimary">@color/color_primary</item>
-        <item name="colorPrimaryDark">@color/color_primary_dark</item>
-        <item name="colorAccent">@color/light_color</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <!--Customize tablayout for Advanced Search-->
-    <style name="customfontstyle" parent="@android:style/TextAppearance.Small">
-<!--        <item name="android:fontFamily">@font/poppins_semi_bold</item>-->
-        <item name="android:textSize">@dimen/_12sdp</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">

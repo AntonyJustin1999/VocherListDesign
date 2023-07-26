@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.test.app.task.data.dataSets.VoucherDetails" />
+        <variable
+            name="itemClickListener"
+            type="com.test.app.task.view.adapter.CustomClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_grey">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="0dp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:onClick="@{() ->itemClickListener.itemClicked(model)}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_65sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:weightSum="5">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/zero_dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_26sdp"
+                            app:cardCornerRadius="@dimen/_5sdp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="@dimen/_45sdp"
+                                android:layout_height="@dimen/_26sdp"
+                                android:adjustViewBounds="true"
+                                android:layout_gravity="center_vertical|center_horizontal"
+                                app:setImageSource="@{model.branch_image_path}"
+                                />
+<!--                            bind:avatar_url="@{model.branch_image_path}"-->
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="@dimen/zero_dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.8"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginLeft="@dimen/_5sdp">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_3sdp"
+                            android:gravity="start"
+                            android:maxLines="1"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_17sdp"
+                            android:fontFamily="@font/google_sans_bold"
+                            android:text="@={model.branch_name}"
+                            />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/iv_location_icon"
+                                android:layout_width="@dimen/_12sdp"
+                                android:layout_height="@dimen/_12sdp"
+                                android:src="@drawable/location_outline"
+                                android:layout_centerVertical="true"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_marginStart="@dimen/_3sdp"
+                                android:layout_marginLeft="@dimen/_3sdp"
+                                android:layout_toRightOf="@+id/iv_location_icon"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/google_sans_regular"
+                                android:gravity="start"
+                                android:maxLines="1"
+                                android:text="@={model.landmark}"
+                                android:textColor="@color/grey"
+                                android:textSize="@dimen/_13sdp" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:gravity="start"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_16sdp"
+                        android:fontFamily="@font/google_sans_bold"
+                        android:text="@={model.voucher_title}"
+                        />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp">
+
+                        <TextView
+                            android:id="@+id/tv_purchased_on"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/google_sans_regular"
+                            android:textSize="@dimen/_13sdp"
+                            android:text="@string/purchased_on"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/grey"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/google_sans_regular"
+                            android:textSize="@dimen/_13sdp"
+                            android:text="@={model.purchased_on}"
+                            android:layout_toRightOf="@+id/tv_purchased_on"
+                            android:textAlignment="textEnd"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/grey_light_dark"
+                            />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp">
+
+                        <TextView
+                            android:id="@+id/tv_valid_until"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/google_sans_regular"
+                            android:textSize="@dimen/_13sdp"
+                            android:text="@string/valid_until"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/grey"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/google_sans_regular"
+                            android:textSize="@dimen/_13sdp"
+                            android:text="@={model.valid_on}"
+                            android:layout_toRightOf="@+id/tv_valid_until"
+                            android:textAlignment="textEnd"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/grey_light_dark"
+                            />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp">
+
+                        <TextView
+                            android:id="@+id/tv_confirmation_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/google_sans_regular"
+                            android:textSize="@dimen/_13sdp"
+                            android:text="@string/confirmation_id"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/grey"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/google_sans_regular"
+                            android:textSize="@dimen/_13sdp"
+                            android:text="@={model.order_number}"
+                            android:layout_toRightOf="@+id/tv_confirmation_id"
+                            android:textAlignment="textEnd"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/grey_light_dark"
+                            />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp">
+
+                        <TextView
+                            android:id="@+id/tv_reedem_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/google_sans_regular"
+                            android:textSize="@dimen/_13sdp"
+                            android:text="@string/reedem_id"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/grey"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/google_sans_regular"
+                            android:textSize="@dimen/_13sdp"
+                            android:text="@={model.prepaid_voucher_code}"
+                            android:layout_toRightOf="@+id/tv_reedem_id"
+                            android:textAlignment="textEnd"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/grey_light_dark"
+                            />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp">
+
+                        <TextView
+                            android:id="@+id/tv_amount_paid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/google_sans_regular"
+                            android:textSize="@dimen/_13sdp"
+                            android:text="@string/amount_paid"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/grey"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/google_sans_regular"
+                            android:textSize="@dimen/_13sdp"
+                            android:text="@={model.price}"
+                            android:layout_toRightOf="@+id/tv_amount_paid"
+                            android:textAlignment="textEnd"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/grey_light_dark"
+                            />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp">
+
+                        <TextView
+                            android:id="@+id/tv_payment_option"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/google_sans_regular"
+                            android:textSize="@dimen/_13sdp"
+                            android:text="@string/payment_option"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/grey"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/google_sans_regular"
+                            android:textSize="@dimen/_13sdp"
+                            android:text="@={model.payment_option}"
+                            android:layout_toRightOf="@+id/tv_payment_option"
+                            android:textAlignment="textEnd"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/grey_light_dark"
+                            />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_10sdp">
+
+                        <TextView
+                            android:id="@+id/tv_voucher_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/google_sans_bold"
+                            android:textSize="@dimen/_14sdp"
+                            android:text="@={model.voucher_value}"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/red_color"
+                            android:layout_centerVertical="true"
+                            />
+
+                        <Button
+                            android:id="@+id/btn_login"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/btn_custom"
+                            android:text="@string/text_expired"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/_13sdp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentEnd="true"
+                            android:paddingStart="@dimen/_28sdp"
+                            android:paddingLeft="@dimen/_28sdp"
+                            android:paddingEnd="@dimen/_28sdp"
+                            android:paddingRight="@dimen/_28sdp"
+                            android:paddingTop="@dimen/_2sdp"
+                            android:paddingBottom="@dimen/_2sdp"
+                            android:fontFamily="@font/google_sans_bold"
+                            android:onClick="@{() ->itemClickListener.btnClicked(model)}"
+                            />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</layout>

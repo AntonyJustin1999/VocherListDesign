@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">Android Task</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="ApiKey">AIzaSyDqA2ZppI-OVM5EwOqCXX4uSDv49r1ZebQ</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="something_wrong">Something Went Wrong</string>
+    <string name="purchased_on">Purchased On:</string>
+    <string name="valid_until">Valid Until:</string>
+    <string name="confirmation_id">Confirmation ID:</string>
+    <string name="reedem_id">Reedem ID:</string>
+    <string name="amount_paid">Amount paid:</string>
+    <string name="payment_option">Payment Option:</string>
+    <string name="text_expired">Expired</string>
+    <string name="text_vouchers">Vouchers</string>
 
 </resources>

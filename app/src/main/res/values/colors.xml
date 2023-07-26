@@ -14,4 +14,10 @@
     <color name="color1">#0091ea</color>
     <color name="color2">#00bfa5</color>
     <color name="grey_300">#E0E0E0</color>
+    <color name="grey">#BEC0C8</color>
+    <color name="light_grey">#F0F0F0</color>
+    <color name="grey_light_dark">#676769</color>
+    <color name="red_color">#EA0848</color>
+    <color name="red_light_color">#F80243</color>
+
 </resources>

@@ -1,0 +1,10 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <dimen name="zero_dp">0dp</dimen>
+    <dimen name="_minus70sdp">-70.00dp</dimen>
+    <dimen name="_minus30sdp">-30.00dp</dimen>
+    <dimen name="_minus40sdp">-40.00dp</dimen>
+    <dimen name="_minus5sdp">-5.00dp</dimen>
+
+</resources>
